@@ -1,0 +1,17 @@
+{
+  "name": "chat-application",
+  "version": "1.0.0",
+  "description": "Chat platform to talk and enjoy being in a room.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
+  },
+  "author": "Ayush Pansari",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "moment": "^2.29.1",
+    "socket.io": "^4.2.0"
+  }
+}
