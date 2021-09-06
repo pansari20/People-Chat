@@ -9,7 +9,7 @@ const { userJoin, getCurrentUser, userLeave, getRoomUsers, formatMessages } = re
 // const io = socketio(server);
 
 // Setting static folder
-app.use(express.static(path.join(__dirname, './Public')));
+app.use(express.static(path.join(__dirname, './')));
 
 io.on('connection', socket => {
     socket.on('joinRoom', ({ username, room }) => {
