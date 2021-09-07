@@ -1,4 +1,5 @@
 {
+  "homepage": "https://peoplechats.herokuapp.com/",
   "name": "chat-application",
   "version": "1.0.0",
   "description": "Chat platform to talk and enjoy being in a room.",
@@ -16,5 +17,8 @@
   },
   "devDependencies": {
     "nodemon": "^2.0.2"
+  },
+  "engines": {
+    "node": "14.17.5"
   }
 }
