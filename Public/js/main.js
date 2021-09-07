@@ -5,7 +5,7 @@ const userList = document.getElementById('users');
 
 const socket = io();
 var sound = new Audio('sound.mp3');
-sound.volume = 0.2;
+sound.volume = 0.4;
 const { username, room } = Qs.parse(location.search, {
     ignoreQueryPrefix: true
 });
@@ -22,7 +22,7 @@ socket.on('message', message => {
 });
 
 socket.on('roomUsers', (data) => {
-    roomName.innerText ='Room : ' + data.room ;
+    roomName.innerText = 'Room: ' + data.room;
     outputUsers(data.users);
 })
 
@@ -46,7 +46,7 @@ function outputMessage(message) {
 }
 
 function outputUsers(users) {
-    document.getElementById('users').innerHTML='<hr>';
+    document.getElementById('users').innerHTML = '<hr>';
     for (let i = 0; i < users.length; i++) {
         const li = document.createElement('li');
         li.innerHTML = `${users[i].username}`;
@@ -58,6 +58,9 @@ function outputUsers(users) {
 document.getElementById('leave-btn').addEventListener('click', () => {
     const leaveRoom = confirm('Are you sure you want to leave the chatroom?');
     if (leaveRoom) {
-      window.location = '../index.html';
+        window.location = '../index.html';
     }
-  });
+});
+document.getElementById('clear-chat-btn').addEventListener('click', () => {
+    chatMessages.innerHTML = '';
+});
