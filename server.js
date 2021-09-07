@@ -1,7 +1,7 @@
 const express = require('express');
 const path = require('path');
 const app = express();
-const port = 3000 || process.env.PORT;
+const port = process.env.PORT || 3000;
 const http = require('http');
 const server = http.createServer(app);
 const io = require('socket.io')(server);
@@ -9,7 +9,7 @@ const { userJoin, getCurrentUser, userLeave, getRoomUsers, formatMessages } = re
 // const io = socketio(server);
 
 // Setting static folder
-app.use(express.static(path.join(__dirname, './')));
+app.use(express.static(path.join(__dirname, './Public')));
 
 io.on('connection', socket => {
     socket.on('joinRoom', ({ username, room }) => {

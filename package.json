@@ -4,7 +4,7 @@
   "description": "Chat platform to talk and enjoy being in a room.",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon server",
     "start": "node server.js"
   },
   "author": "Ayush Pansari",
@@ -14,7 +14,7 @@
     "moment": "^2.29.1",
     "socket.io": "^4.2.0"
   },
-  "engines": {
-    "node": "^14.17.5"
+  "devDependencies": {
+    "nodemon": "^2.0.2"
   }
 }
