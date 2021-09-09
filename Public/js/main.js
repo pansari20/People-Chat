@@ -4,8 +4,11 @@ const roomName = document.getElementById('room-name');
 const userList = document.getElementById('users');
 
 const socket = io();
-var sound = new Audio('sound.mp3');
-sound.volume = 0.4;
+var sound = new Audio('SMS tone 1 sec.mp3');
+sound.volume = 0.6;
+sound.playbackRate = 1.8;
+
+// Searching username and room in url
 const { username, room } = Qs.parse(location.search, {
     ignoreQueryPrefix: true
 });
@@ -24,7 +27,7 @@ socket.on('message', message => {
 socket.on('roomUsers', (data) => {
     roomName.innerText = 'Room: ' + data.room;
     outputUsers(data.users);
-})
+});
 
 chatForm.addEventListener('submit', (e) => {
     e.preventDefault();
@@ -58,7 +61,8 @@ function outputUsers(users) {
 document.getElementById('leave-btn').addEventListener('click', () => {
     const leaveRoom = confirm('Are you sure you want to leave the chatroom?');
     if (leaveRoom) {
-        window.location = '../index.html';
+        // It will direct to home location that is index.js
+        window.location = '/';
     }
 });
 document.getElementById('clear-chat-btn').addEventListener('click', () => {
