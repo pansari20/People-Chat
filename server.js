@@ -6,7 +6,6 @@ const http = require('http');
 const server = http.createServer(app);
 const io = require('socket.io')(server);
 const { userJoin, getCurrentUser, userLeave, getRoomUsers, formatMessages } = require('./functions')
-// const io = socketio(server);
 
 // Setting static folder
 app.use(express.static(path.join(__dirname, './Public')));

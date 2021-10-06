@@ -1,10 +1,27 @@
-const moment = require('moment');
+// taking time in IST, no matter location...
+
+var currentTime = new Date();
+var currentOffset = currentTime.getTimezoneOffset();
+var ISTOffset = 330;   // IST offset UTC +5:30 
+var ISTTime = new Date(currentTime.getTime() + (ISTOffset + currentOffset)*60000);
+
+var hoursIST = ISTTime.getHours()
+var minutesIST = ISTTime.getMinutes()
+
+let morning = true;
+if(hoursIST>=12) morning = false;
+
+if(hoursIST>12) {
+    hoursIST-=12;
+}
+
+if(minutesIST<10) minutesIST = '0' + minutesIST;
 
 function formatMessages(username, text) {
     return {
         username,
         text,
-        time: moment().format('h:mm a')
+        time: `${hoursIST}:${minutesIST} ${morning ? 'am':'pm'}`
     }
 }
 
